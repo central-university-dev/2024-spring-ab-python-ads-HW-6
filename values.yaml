@@ -1,0 +1,45 @@
+airflow:
+  gitSync:
+    enabled: true
+    repo: "https://github.com/dkopylov1337/dags.git"
+    branch: "main"
+    subPath: "dags"
+
+  # Adding custom volume for Docker socket to the scheduler, web, and worker
+  extraVolumes:
+    - name: docker-sock
+      hostPath:
+        path: /var/run/docker.sock
+  extraVolumeMounts:
+    - name: docker-sock
+      mountPath: /var/run/docker.sock
+
+workers:
+  # Adding custom volume for Docker socket specifically to workers
+  extraVolumes:
+    - name: docker-sock
+      hostPath:
+        path: /var/run/docker.sock
+  extraVolumeMounts:
+    - name: docker-sock
+      mountPath: /var/run/docker.sock
+
+scheduler:
+  # Adding custom volume for Docker socket specifically to scheduler
+  extraVolumes:
+    - name: docker-sock
+      hostPath:
+        path: /var/run/docker.sock
+  extraVolumeMounts:
+    - name: docker-sock
+      mountPath: /var/run/docker.sock
+
+web:
+  # Adding custom volume for Docker socket specifically to web
+  extraVolumes:
+    - name: docker-sock
+      hostPath:
+        path: /var/run/docker.sock
+  extraVolumeMounts:
+    - name: docker-sock
+      mountPath: /var/run/docker.sock
