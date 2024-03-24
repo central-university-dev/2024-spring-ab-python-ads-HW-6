@@ -1,0 +1,24 @@
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+name = "streamlit dashboard"
+version = "0.1.0"
+description = "Streamlint dashboard"
+authors = ["D <d.kopylov@centraluniversity.ru>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+apache-airflow = "^2.3.0"
+streamlit = "^1.9.0"
+scikit-learn = "^1.0.2"
+scikit-uplift = "^0.4.0"
+catboost = "^1.0.3"
+pandas = "^2.2.1"
+seaborn = "^0.11.2"
+matplotlib = "^3.5.1"
+
+[tool.poetry.dev-dependencies]
+pytest = "^6.2.2"
